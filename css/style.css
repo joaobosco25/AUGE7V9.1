@@ -37,6 +37,10 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+.section-minimal .services {
+    border: 2px solid red;
+}
+
 .container {
     width: 100%;
     max-width: 1200px;
@@ -194,7 +198,7 @@ body.loaded .loader {
     display: flex;
     align-items: center;
     position: relative;
-    background: url(/assets/images/portfolio/backfoto.jpg) center/cover no-repeat;
+    background: url(../assets/images/portfolio/backfoto.jpg) center/cover no-repeat;
 }
 
 .hero-minimal::before {

@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.add('loaded');
     }, 1000);
 
-    // Header Scroll Effect
+    // Efeitos de Scroll da barra de navegação
     const nav = document.querySelector('.nav-minimal');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Mobile Menu
+    // Menu mobile
     const menuToggle = document.getElementById('menuToggle');
     const mobileMenu = document.getElementById('mobileMenu');
     const closeMenu = document.getElementById('closeMenu');
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Portfolio Images Data
+    // Imagens do Portfolio
     const portfolioImages = [
         'DSC00025.jpg', 'DSC00034.jpg', 'DSC01964.jpg', 'DSC02315.jpg',
         'DSC03047.jpg', 'DSC03059.jpg', 'DSC03491.jpg', 'DSC03532.jpg', 'DSC03715.jpg', 'DSC03808.jpg',
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Clients Logos Data
+    // Imagens da Logo dos cliente
     const clientLogos = [
         'Agrupar 1.png', 'Camada 1.png', 'Gympass.png', 'Logo_Algar.png', 
         'Logo_FGV_1.png', 'Objeto Inteligente de Vetor-01.png',
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Carousel Navigation Logic
+    // Lógica do Carrocel
     const setupCarouselNav = (gridId, prevBtnId, nextBtnId, autoScroll = false) => {
         const grid = document.getElementById(gridId);
         const prevBtn = document.getElementById(prevBtnId);
@@ -205,6 +205,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    
+
     // Listen for fullscreen exit to remute and pause
     document.addEventListener('fullscreenchange', () => {
         if (!document.fullscreenElement) {
@@ -247,6 +249,36 @@ document.addEventListener('DOMContentLoaded', () => {
                     btn.disabled = false;
                 }, 3000);
             }, 2000);
+        });
+    }
+});
+
+const videoCards = document.querySelectorAll('.portfolio-card');
+
+videoCards.forEach(card => {
+    const video = card.querySelector('video');
+
+    if (video) {
+        card.addEventListener('mouseenter', () => {
+            video.play().catch(e => console.log('Auto-play prevented'));
+        });
+
+        card.addEventListener('mouseleave', () => {
+            video.pause();
+            video.currentTime = 0;
+        });
+
+        card.addEventListener('click', () => {
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.webkitRequestFullscreen) {
+                video.webkitRequestFullscreen();
+            } else if (video.msRequestFullscreen) {
+                video.msRequestFullscreen();
+            }
+
+            video.muted = false;
+            video.play().catch(e => console.log('Play failed'));
         });
     }
 });
