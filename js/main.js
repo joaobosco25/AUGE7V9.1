@@ -39,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Portfolio Images Data
     const portfolioImages = [
-        '04.png', '05.png', '07.png',
         'DSC00025.jpg', 'DSC00034.jpg', 'DSC01964.jpg', 'DSC02315.jpg',
         'DSC03047.jpg', 'DSC03059.jpg', 'DSC03491.jpg', 'DSC03532.jpg', 'DSC03715.jpg', 'DSC03808.jpg',
         'DSC04605.jpg', 'DSC04842.jpg', 'DSC05089.jpg', 'DSC05096.jpg', 'DSC05111.jpg', 'DSC05233.jpg',
